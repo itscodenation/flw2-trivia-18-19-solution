@@ -13,11 +13,13 @@ class App extends Component {
       currentQuestion: null,
       shouldShowCorrectAnswer: false,
       shouldShowResetButton: false,
+      seconds: 10,
     };
   }
 
   componentDidMount(){
     this.setRandomQuestion();
+    this.startTimer();
   }
 
   _onAnswerButtonClicked(isCorrect){
@@ -29,6 +31,20 @@ class App extends Component {
     this.hideResetButton();
     this.hideCorrectAnswer();
     this.setRandomQuestion();
+    this.startTimer();
+  }
+
+  startTimer(){
+    this.setState({seconds: 10})
+    let timer = setInterval(() => {
+      if(this.state.seconds === 0) {
+        clearInterval(timer);
+        this.showCorrectAnswer();
+        this.showResetButton();
+      } else {
+        this.setState({seconds: this.state.seconds - 1})
+      }
+    }, 1000);
   }
 
   showCorrectAnswer(){
@@ -54,13 +70,16 @@ class App extends Component {
 
   render() {
     return (
-      <Question
-        shouldShowCorrectAnswer={this.state.shouldShowCorrectAnswer}
-        shouldShowResetButton={this.state.shouldShowResetButton}
-        question={this.state.currentQuestion}
-        onAnswerButtonClicked={(test)=>this._onAnswerButtonClicked(test)}
-        onResetButtonClicked={()=>this._onResetButtonClicked()}
-      /> 
+      <div className="app">
+        <Question
+          seconds={this.state.seconds}
+          shouldShowCorrectAnswer={this.state.shouldShowCorrectAnswer}
+          shouldShowResetButton={this.state.shouldShowResetButton}
+          question={this.state.currentQuestion}
+          onAnswerButtonClicked={(test)=>this._onAnswerButtonClicked(test)}
+          onResetButtonClicked={()=>this._onResetButtonClicked()}
+        />
+      </div>
     );
   }
 }

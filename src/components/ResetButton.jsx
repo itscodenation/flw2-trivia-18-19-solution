@@ -7,7 +7,6 @@ export default function ResetButton({
   if(!shouldShowResetButton){
     return null;
   }
-  console.log(shouldShowResetButton)
   return (
     <div
       className="reset-button"

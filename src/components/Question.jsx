@@ -2,9 +2,11 @@ import React from 'react';
 import QuestionStem from './QuestionStem';
 import AnswerButton from './AnswerButton';
 import ResetButton from './ResetButton';
+import Timer from './Timer';
 
 export default function Question({
   question,
+  seconds,
   shouldShowCorrectAnswer,
   shouldShowResetButton,
   onResetButtonClicked,
@@ -20,7 +22,12 @@ export default function Question({
           questionStem={question.questionStem}
         />
       </div>
-      <div>
+      <div className="timer">
+        <Timer
+          seconds={seconds}
+        />
+      </div>
+      <div className="reset_button">
         <ResetButton 
           shouldShowResetButton={shouldShowResetButton}
           onResetButtonClicked={onResetButtonClicked}
