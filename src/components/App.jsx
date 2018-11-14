@@ -14,6 +14,7 @@ class App extends Component {
       shouldShowCorrectAnswer: false,
       shouldShowResetButton: false,
       seconds: 10,
+      correctGuesses: 0,
     };
   }
 
@@ -23,6 +24,10 @@ class App extends Component {
   }
 
   _onAnswerButtonClicked(isCorrect){
+    if(isCorrect){
+      this.setState({correctGuesses: this.state.correctGuesses + 1})
+    }
+    console.log("isCorrect");
     this.showCorrectAnswer()
     this.showResetButton()
   }
@@ -73,6 +78,7 @@ class App extends Component {
       <div className="app">
         <Question
           seconds={this.state.seconds}
+          correctGuesses={this.state.correctGuesses}
           shouldShowCorrectAnswer={this.state.shouldShowCorrectAnswer}
           shouldShowResetButton={this.state.shouldShowResetButton}
           question={this.state.currentQuestion}

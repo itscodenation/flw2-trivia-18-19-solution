@@ -27,7 +27,5 @@ export async function getQuestions() {
 export async function getRandomQuestion() {
   const questions = await getQuestions();
   const randomIndex = Math.floor(Math.random() * questions.length);
-  console.log(questions)
-  console.log(randomIndex)
   return questions[randomIndex];
 }

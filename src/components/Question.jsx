@@ -3,8 +3,11 @@ import QuestionStem from './QuestionStem';
 import AnswerButton from './AnswerButton';
 import ResetButton from './ResetButton';
 import Timer from './Timer';
+import Counter from './Counter';
+
 
 export default function Question({
+  correctGuesses,
   question,
   seconds,
   shouldShowCorrectAnswer,
@@ -25,6 +28,11 @@ export default function Question({
       <div className="timer">
         <Timer
           seconds={seconds}
+        />
+      </div>
+      <div className="counter">
+        <Counter
+          correctGuesses={correctGuesses}
         />
       </div>
       <div className="reset_button">
