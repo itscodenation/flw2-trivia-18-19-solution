@@ -19,7 +19,7 @@ export default function Question({
     return null;
   }
   return (
-    <div className="question">
+    <div className="questionDisplay">
       <div className="questionStem">
         <QuestionStem
           questionStem={question.questionStem}

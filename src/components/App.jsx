@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 
-import Question from './Question';
+import QuestionDisplay from './QuestionDisplay';
 import {
   getRandomQuestion,
 } from '../clients/firebase';
@@ -76,7 +76,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Question
+        <QuestionDisplay
           seconds={this.state.seconds}
           correctGuesses={this.state.correctGuesses}
           shouldShowCorrectAnswer={this.state.shouldShowCorrectAnswer}
