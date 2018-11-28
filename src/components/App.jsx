@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       currentQuestion: null,
       shouldShowCorrectAnswer: false,
+      shouldShowResetButton: false,
     };
   }
 
@@ -21,7 +22,13 @@ class App extends Component {
 
   _onAnswerButtonClicked(){
     this.setState({shouldShowCorrectAnswer: true})
-    this.setRandomQuestion();
+    this.setState({shouldShowResetButton: true})
+  }
+
+  _onResetButtonClicked(){
+    this.setRandomQuestion()
+    this.setState({shouldShowCorrectAnswer: false})
+    this.setState({shouldShowResetButton: false})
   }
 
   async setRandomQuestion(){
@@ -34,8 +41,10 @@ class App extends Component {
       <div className="app">
         <Question
           shouldShowCorrectAnswer={this.state.shouldShowCorrectAnswer}
+          shouldShowResetButton={this.state.shouldShowResetButton}
           question={this.state.currentQuestion}
           onAnswerButtonClicked={()=>this._onAnswerButtonClicked()}
+          onResetButtonClicked={()=>this._onResetButtonClicked()}
         />
       </div>
     );

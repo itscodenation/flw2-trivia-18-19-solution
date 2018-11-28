@@ -1,12 +1,16 @@
 import React from 'react';
 import QuestionStem from './QuestionStem';
 import AnswerButton from './AnswerButton';
+import ResetButton from './ResetButton';
+
 
 export default function Question({
   question,
   seconds,
   shouldShowCorrectAnswer,
+  shouldShowResetButton,
   onAnswerButtonClicked,
+  onResetButtonClicked,
 }) {
   if (!question){
     return null;
@@ -18,7 +22,12 @@ export default function Question({
           questionStem={question.questionStem}
         />
       </div>
-
+      <div className="resetButton">
+        <ResetButton 
+          shouldShowResetButton={shouldShowResetButton}
+          onResetButtonClicked={onResetButtonClicked}
+        />
+      </div>
       <div className="buttons">
         <AnswerButton
           answerChoice={question.answerChoices[0]}
