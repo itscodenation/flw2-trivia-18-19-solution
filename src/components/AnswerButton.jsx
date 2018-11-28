@@ -1,19 +1,20 @@
 import React from 'react';
 
 export default function AnswerButton({
-  answerChoice,
+  answerText,
+  correctChoice,
+  choice,
   onAnswerButtonClicked,
   shouldShowCorrectAnswer,
 }) {
   let display;
-  if (shouldShowCorrectAnswer && answerChoice.isCorrect) {
+  if (shouldShowCorrectAnswer && correctChoice === choice) {
     display = "Correct!"
-  } else if (shouldShowCorrectAnswer && !answerChoice.isCorrect){
-    display = "Nope :)"
+  } else if (shouldShowCorrectAnswer && correctChoice !== choice ) {
+    display = "Nope"
   } else {
-    display = answerChoice.answer;
+    display = answerText;
   }
-
   return (
     <div 
       className="button" 

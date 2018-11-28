@@ -16,36 +16,40 @@ export default function Question({
     return null;
   }
   return (
-    <div className="questionDisplay">
-      <div className="questionStem">
-        <QuestionStem
-          questionStem={question.questionStem}
-        />
-      </div>
-      <div className="resetButton">
-        <ResetButton 
-          shouldShowResetButton={shouldShowResetButton}
-          onResetButtonClicked={onResetButtonClicked}
-        />
-      </div>
+    <div className="question">
+      <QuestionStem
+        questionStem={question.question}
+      />
+      <ResetButton 
+        shouldShowResetButton={shouldShowResetButton}
+        onResetButtonClicked={onResetButtonClicked}
+      />
       <div className="buttons">
         <AnswerButton
-          answerChoice={question.answerChoices[0]}
+          answerText={question.choices[0]}
+          choice={0}
+          correctChoice={question.correct_choice}
           shouldShowCorrectAnswer={shouldShowCorrectAnswer}
           onAnswerButtonClicked={onAnswerButtonClicked}
         />
         <AnswerButton
-          answerChoice={question.answerChoices[1]}
+          answerText={question.choices[1]}
+          choice={1}
+          correctChoice={question.correct_choice}
           shouldShowCorrectAnswer={shouldShowCorrectAnswer}
           onAnswerButtonClicked={onAnswerButtonClicked}
         />
         <AnswerButton
-          answerChoice={question.answerChoices[2]}
+          answerText={question.choices[2]}
+          choice={2}
+          correctChoice={question.correct_choice}
           shouldShowCorrectAnswer={shouldShowCorrectAnswer}
           onAnswerButtonClicked={onAnswerButtonClicked}
         />
         <AnswerButton
-          answerChoice={question.answerChoices[3]}
+          answerText={question.choices[3]}
+          choice={3}
+          correctChoice={question.correct_choice}
           shouldShowCorrectAnswer={shouldShowCorrectAnswer}
           onAnswerButtonClicked={onAnswerButtonClicked}
         />
