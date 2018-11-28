@@ -17,7 +17,7 @@ export default function AnswerButton({
   return (
     <div 
       className="button" 
-      onClick={() => onAnswerButtonClicked(answerChoice.isCorrect)}
+      onClick={() => onAnswerButtonClicked()}
     >
       {display}
     </div>
