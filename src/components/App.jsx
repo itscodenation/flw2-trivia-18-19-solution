@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 // import components
+import Question from './Question'
 
 class App extends Component {
   constructor(props) {
@@ -14,8 +15,7 @@ class App extends Component {
     return (
       <div className="app">
         Kahoot!
-        {/* Add your question display component */}
-
+        <Question />
       </div>
     );
   }
