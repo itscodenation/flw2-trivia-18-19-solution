@@ -9,13 +9,23 @@ class Question extends Component {
   render() {
     return (
       <div className="question">
-        <QuestionStem />
+        <QuestionStem 
+          question={this.props.currentQuestion.question}
+        />
         <ResetButton />
         <div className="buttons">
-          <AnswerButton />
-          <AnswerButton />
-          <AnswerButton />
-          <AnswerButton />
+          <AnswerButton 
+            answerChoice={this.props.currentQuestion.choices[0]}
+          />
+          <AnswerButton 
+            answerChoice={this.props.currentQuestion.choices[1]}
+          />
+          <AnswerButton 
+            answerChoice={this.props.currentQuestion.choices[2]}
+          />
+          <AnswerButton 
+            answerChoice={this.props.currentQuestion.choices[3]}
+          />
         </div>
     </div>
     );

@@ -40,7 +40,7 @@ Goal: Set up your your components
 ```
     this.state = {
         currentQuestion : {
-            question: "Why is the answer to the Ultimate Question of Life, the Universe, and Everything",
+            question: "What is the answer to the Ultimate Question of Life, the Universe, and Everything",
             choices: [
                 "Bubbles",
                 "Chocolate",

@@ -5,7 +5,7 @@ class AnswerButton extends Component {
   render() {
     return (
       <div className="button">
-        Question Answer
+        {this.props.answerChoice}
       </div>
     );
   }
