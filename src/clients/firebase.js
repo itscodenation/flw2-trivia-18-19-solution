@@ -21,7 +21,6 @@ function buildFirebase() {
 export async function getQuestions() {
   const database = await loadDatabase();
   const questions = await database.ref('/questions').once('value');
-  console.log(questions.val());
   return questions.val();
 }
 
