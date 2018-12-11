@@ -5,27 +5,6 @@ import {getRandomQuestion} from '../clients/firebase'
 import Question from './Question'
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     questionText: null,
-  //     answerChoiceOne: null,
-  //     answerChoiceTwo: null,
-  //     answerChoiceThree: null,
-  //     answerChoiceFour: null,
-  //   };
-  // }
-  
-  // async componentWillMount(){
-  //   const randomQuestion = await getRandomQuestion();
-  //   this.setState({
-  //     questionText: randomQuestion.question_text,
-  //     answerChoiceOne: randomQuestion.choices[0],
-  //     answerChoiceTwo: randomQuestion.choices[1],
-  //     answerChoiceThree: randomQuestion.choices[2],
-  //     answerChoiceFour: randomQuestion.choices[3],
-  //   });
-  // }
 
   render() {
     let questionText = "My Question";
