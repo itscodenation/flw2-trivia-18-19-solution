@@ -20,6 +20,10 @@ class App extends Component {
     this.setCurrentQuestion();
   }
 
+  onResetButtonClicked(){
+    this.setCurrentQuestion();
+  }
+
   async setCurrentQuestion(){ 
     var randomQuestion = await getRandomQuestion();
     this.setState({

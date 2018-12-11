@@ -12,7 +12,9 @@ class Question extends Component {
         <QuestionText 
           questionText={this.props.questionText}
         />
-        <ResetButton />
+        <ResetButton 
+          resetButtonClicked={this.props.resetButtonClicked}
+        />
 
         <div className="buttons">
           <AnswerButton 
