@@ -7,6 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      shouldShowAnswer: false,
       currentQuestion : {
         question: "What is the answer to the Ultimate Question of Life, the Universe, and Everything",
         choices: [
@@ -15,9 +16,14 @@ class App extends Component {
             "42",
             "Puppies",
         ],
-        correct_choice: "1"
+        correct_choice: "2"
       }
     };
+  }
+
+  _onAnswerButtonClicked(){
+    console.log('answer clicked');
+    this.setState({shouldShowAnswer: true})
   }
 
   render() {
@@ -26,6 +32,8 @@ class App extends Component {
         Kahoot!
         <Question 
           currentQuestion={this.state.currentQuestion}
+          shouldShowAnswer={this.state.shouldShowAnswer}
+          answerButtonClicked={() => this._onAnswerButtonClicked()}
         />
       </div>
     );
