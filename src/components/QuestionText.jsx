@@ -4,8 +4,8 @@ class QuestionStem extends Component {
   
   render() {
     return (
-      <div className="">
-        {this.props.question}
+      <div className="questionText">
+        {this.props.questionText}
       </div>
     );
   }
