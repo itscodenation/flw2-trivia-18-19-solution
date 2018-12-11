@@ -32,8 +32,6 @@ class App extends Component {
         Kahoot!
         <Question 
           currentQuestion={this.state.currentQuestion}
-          shouldShowAnswer={this.state.shouldShowAnswer}
-          answerButtonClicked={() => this._onAnswerButtonClicked()}
         />
       </div>
     );

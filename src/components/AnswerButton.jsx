@@ -4,9 +4,7 @@ class AnswerButton extends Component {
   
   render() {
     return (
-      <div className="button"
-      onClick={this.props.answerButtonClicked}
-      >
+      <div className="button">
         {this.props.answerChoice}
       </div>
     );

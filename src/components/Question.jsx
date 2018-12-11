@@ -18,19 +18,15 @@ class Question extends Component {
         <div className="buttons">
           <AnswerButton 
             answerChoice={this.props.currentQuestion.choices[0]}
-            answerButtonClicked={this.props.answerButtonClicked}
           />
           <AnswerButton 
             answerChoice={this.props.currentQuestion.choices[1]}
-            answerButtonClicked={this.props.answerButtonClicked}
           />
           <AnswerButton 
             answerChoice={this.props.currentQuestion.choices[2]}
-            answerButtonClicked={this.props.answerButtonClicked}
           />
           <AnswerButton 
             answerChoice={this.props.currentQuestion.choices[3]}
-            answerButtonClicked={this.props.answerButtonClicked}
           />
         </div>
     </div>
