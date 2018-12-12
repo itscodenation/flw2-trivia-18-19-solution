@@ -78,10 +78,41 @@ Goal: Set up your your components
     };
 ```
 
-### Day 5 Work Day
+### Day 5 Reacting to User Input
 
+  ```
+  async onResetButtonClicked(){
+    var randomQuestion = await getRandomQuestion();
+    this.setState({
+      questionText: randomQuestion.question_text,
+    })
+  }
+  ```
 
-### Day 6 Reacting to User Input
+  ```
+  <Question 
+    ...
+    resetButtonClicked={()=>this.onResetButtonClicked()}
+  />
+  ```
+
+  ```
+    <ResetButton 
+          resetButtonClicked={this.props.resetButtonClicked}
+    />
+  ```
+
+  ```
+    return (
+      <div className="reset-button"
+        onClick={this.props.resetButtonClicked}
+      >
+        Reset
+      </div>
+    );
+  ```
+
+### Day 6 Work Day
 
 
 ### Day 7 

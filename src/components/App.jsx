@@ -16,15 +16,18 @@ class App extends Component {
     }
   }
 
-  componentWillMount(){
-    this.setCurrentQuestion();
+  async componentWillMount(){
+    var randomQuestion = await getRandomQuestion();
+    this.setState({
+      questionText: randomQuestion.question_text,
+      answerChoiceOne: randomQuestion.choices[0],
+      answerChoiceTwo: randomQuestion.choices[1],
+      answerChoiceThree: randomQuestion.choices[2],
+      answerChoiceFour: randomQuestion.choices[3],
+    })
   }
 
-  onResetButtonClicked(){
-    this.setCurrentQuestion();
-  }
-
-  async setCurrentQuestion(){ 
+  async onResetButtonClicked(){
     var randomQuestion = await getRandomQuestion();
     this.setState({
       questionText: randomQuestion.question_text,
