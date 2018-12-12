@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import components
-import QuestionStem from './QuestionStem';
+import QuestionText from './QuestionText';
 import ResetButton from './ResetButton';
 import AnswerButton from './AnswerButton';
 
@@ -9,7 +9,7 @@ class Question extends Component {
   render() {
     return (
       <div className="question">
-        <QuestionStem />
+        <QuestionText />
         <ResetButton />
         <div className="buttons">
           <AnswerButton />

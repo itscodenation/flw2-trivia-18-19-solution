@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-class QuestionStem extends Component {
+class QuestionText extends Component {
   
   render() {
     return (
-      <div className="">
+      <div className="questionText">
         What is the answer to the Ultimate Question of Life, the Universe, and Everything?
       </div>
     );
   }
 }
 
-export default QuestionStem;
+export default QuestionText;
