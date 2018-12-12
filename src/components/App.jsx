@@ -16,11 +16,7 @@ class App extends Component {
     }
   }
 
-  componentWillMount(){
-    this.setCurrentQuestion();
-  }
-
-  async setCurrentQuestion(){ 
+  async componentWillMount(){
     var randomQuestion = await getRandomQuestion();
     this.setState({
       questionText: randomQuestion.question_text,
@@ -30,7 +26,6 @@ class App extends Component {
       answerChoiceFour: randomQuestion.choices[3],
     })
   }
-
 
   render() {
     return (
