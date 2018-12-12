@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import components
-import QuestionStem from './QuestionStem';
+import QuestionText from './QuestionText';
 import ResetButton from './ResetButton';
 import AnswerButton from './AnswerButton';
 
@@ -9,24 +9,22 @@ class Question extends Component {
   render() {
     return (
       <div className="question">
-        <QuestionStem 
-          question={this.props.currentQuestion.question}
-          answer={this.props.currentQuestion.choices[this.props.currentQuestion.correct_choice]}
-          shouldShowAnswer={this.props.shouldShowAnswer}
+        <QuestionText
+          questionText={this.props.questionText}
         />
         <ResetButton />
         <div className="buttons">
           <AnswerButton 
-            answerChoice={this.props.currentQuestion.choices[0]}
+            answerChoice={this.props.answerChoiceOne}
           />
           <AnswerButton 
-            answerChoice={this.props.currentQuestion.choices[1]}
+            answerChoice={this.props.answerChoiceTwo}
           />
           <AnswerButton 
-            answerChoice={this.props.currentQuestion.choices[2]}
+            answerChoice={this.props.answerChoiceThree}
           />
           <AnswerButton 
-            answerChoice={this.props.currentQuestion.choices[3]}
+            answerChoice={this.props.answerChoiceFour}
           />
         </div>
     </div>
