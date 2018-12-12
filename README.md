@@ -51,11 +51,60 @@ Goal: Set up your your components
 
 [] Use your remaining time to style your project
 
+### Day 4 Updating State
+Now that we have props that we can pass down we need a way to store/ keep track of props if we change them. Thats where we can use state.
 
-### Day 4 State and Reacting to use input.
+[] In your app.jsx file lets add a constructor method directly inside your App component
+
+```
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state= {
+      
+    }
+  }
+```
+
+[] Since we want to keep track of the question each time the page loads lets add a property to the state to keep track of the state. 
+
+```
+    this.state= {
+      questionText: "Question",
+    }
+```
+
+[] Now we can access the questionText from state and pass it down to each subsequent component. Notice your question text change.
+
+```
+    <Question 
+        questionText={this.state.questionText}
+    />
+```
+
+[] Last we want to grab a new question every time the page loads we need to write a function. Don't worry about async/await right now. First we fetch a randomQuestion using getRandomQuestion. Look at the console to see the data stucture.
+
+```
+  async componentWillMount(){ 
+    var randomQuestion = await getRandomQuestion();
+    console.log(random);
+  }
+```
+and use this.setState to change the state to randomQuestion.question_text.
+
+```
+  async componentWillMount(){ 
+    var randomQuestion = await getRandomQuestion();
+    this.setState({
+      questionText: randomQuestion.question_text,
+    })
+  }
+```
+
+[] Now lets follow the same pattern to complete for the rest of your answer choices.
 
 
-### Day 5 Work Day
+### Day 5 Reacting to user click
 
 
 ### Day 6 Reacting to User Input
