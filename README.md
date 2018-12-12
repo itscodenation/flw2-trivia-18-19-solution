@@ -105,7 +105,37 @@ and use this.setState to change the state to randomQuestion.question_text.
 
 
 ### Day 5 Reacting to user click
+ ```
+  async onResetButtonClicked(){
+    var randomQuestion = await getRandomQuestion();
+    this.setState({
+      questionText: randomQuestion.question_text,
+    })
+  }
+  ```
 
+  ```
+  <Question 
+    ...
+    resetButtonClicked={()=>this.onResetButtonClicked()}
+  />
+  ```
+
+  ```
+    <ResetButton 
+          resetButtonClicked={this.props.resetButtonClicked}
+    />
+  ```
+
+  ```
+    return (
+      <div className="reset-button"
+        onClick={this.props.resetButtonClicked}
+      >
+        Reset
+      </div>
+    );
+  ```
 
 ### Day 6 Reacting to User Input
 
