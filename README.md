@@ -19,66 +19,92 @@ Goal: Set up your project and view the live running app.
 Goal: Set up your your components
 [] In your App.jsx file import the Question Component
 [] Inside the render function call your Question component
-[] Using the Question.jsx as a template create three more components called AnswerButton.jsx, QuestionStem.jsx and ResetButton.jsx
-[] In your Question.jsx file import your QuestionStem, AnswerButton and ResetButton. In the spaces provided call each of the components. (You should have 4 AnswerButtons)
-[] The QuestionStem should render a div with the text of any question of your choosing
+[] Using the Question.jsx as a template create three more components called AnswerButton.jsx, QuestionText.jsx and ResetButton.jsx
+[] In your Question.jsx file import your QuestionText, AnswerButton and ResetButton. In the spaces provided call each of the components. (You should have 4 AnswerButtons)
+[] The QuestionText should render a div with the text of any question of your choosing
 [] The AnswerButton should should render a div with the text of any question of your choosing
 [] The ResetButton should should render a div with the text "Reset"
 [] Style these in any way you choose.
 
-### Day 3 Creating State and Passing Down Props to components
-[] Find your  constructor in App.jsx it should look like this.
-```
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-```
-[] For now we are going to fill the state with mock question Data. (Later we will be fetching random questions from firebase)
-```
-    this.state = {
-        currentQuestion : {
-            question: "Why is the answer to the Ultimate Question of Life, the Universe, and Everything",
-            choices: [
-                "Bubbles",
-                "Chocolate",
-                "42",
-                "Puppies",
-            ],
-            correct_choice: "1"
-        }
-    };
-```
+### Day 3 Passing Down Props to components
 [] Now that we have this we can pass down the questions to other components using props. In your App.js let add a prop to the Question component and pass it the currentQuestion from state.
 ```
     < Question
-        currentQuestion={this.state.currentQuestion}
+        questionText={"What is the answer to the Ultimate Question of Life"}
     />
 ```
 
-[] Now we can access this information in the Question component using props. Then we can pass down currentQuestion's question to the QuestionStem component. Open Question.jsx and add the following.
+[] Now we can access this information in the Question component using props. Then we can pass down currentQuestion's question to the QuestionText component. Open Question.jsx and add the following.
 ```
-    < QuestionStem
-        question={this.props.currentQuestion.question}
+    < QuestionText
+        questionText={this.props.questionText}
     />
 ```
-[] Finally in the QuestionStem component lets display that question. 
+[] Finally in the QuestionText component lets display that question. 
 
 ```
-    <div className="questionStem">
-      {this.props.question}
+    <div className="questionText">
+      {this.props.questionText}
     </div>
 ```
 [] Now lets do the same process to pass down your choices to each AnswerButton and diplay the answer choices.
 
 [] Use your remaining time to style your project
 
-### Day 4 Reacting to use input.
+### Day 4 Updating State
+Now that we have props that we can pass down we need a way to store/ keep track of props if we change them. Thats where we can use state.
+
+[] In your app.jsx file lets add a constructor method directly inside your App component
+
+```
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state= {
+      
+    }
+  }
+```
+
+[] Since we want to keep track of the question each time the page loads lets add a property to the state to keep track of the state. 
+
+```
+    this.state= {
+      questionText: "Question",
+    }
+```
+
+[] Now we can access the questionText from state and pass it down to each subsequent component. Notice your question text change.
+
+```
+    <Question 
+        questionText={this.state.questionText}
+    />
+```
+
+[] Last we want to grab a new question every time the page loads we need to write a function. Don't worry about async/await right now. First we fetch a randomQuestion using getRandomQuestion. Look at the console to see the data stucture.
+
+```
+  async componentWillMount(){ 
+    var randomQuestion = await getRandomQuestion();
+    console.log(random);
+  }
+```
+and use this.setState to change the state to randomQuestion.question_text.
+
+```
+  async componentWillMount(){ 
+    var randomQuestion = await getRandomQuestion();
+    this.setState({
+      questionText: randomQuestion.question_text,
+    })
+  }
+```
+
+[] Now lets follow the same pattern to complete for the rest of your answer choices.
 
 
-### Day 5 Work Day
+### Day 5 Reacting to user click
 
 
 ### Day 6 Reacting to User Input
