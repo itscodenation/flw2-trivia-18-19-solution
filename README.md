@@ -82,23 +82,24 @@ class App extends Component {
     />
 ```
 
-[] Last we want to grab a new question every time the page loads we need to write a function. Don't worry about async/await right now. First we fetch a randomQuestion using getRandomQuestion. Look at the console to see the data stucture.
+[] Last we want to grab a new question every time the page loads we need to write a firebase function in the the constuctor.
 
 ```
-  async componentWillMount(){ 
-    var randomQuestion = await getRandomQuestion();
-    console.log(random);
-  }
+   constructor(props) {
+    super(props); 
+
+    firebaseDatabase.ref('/questions').on('value', (snapshot)=> {
+      console.log(snapshot.val())
+    });
 ```
-and use this.setState to change the state to randomQuestion.question_text.
+and use this.setState to change the state.
 
 ```
-  async componentWillMount(){ 
-    var randomQuestion = await getRandomQuestion();
-    this.setState({
-      questionText: randomQuestion.question_text,
-    })
-  }
+    firebaseDatabase.ref('/questions').on('value', (snapshot)=> {
+        let randomQuestion = getRandomQuestion(snaphot.val())
+        this.setState({
+            questionText: randomQuestion.question_text,
+        })
 ```
 
 [] Now lets follow the same pattern to complete for the rest of your answer choices.
