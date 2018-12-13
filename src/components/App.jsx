@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../css/App.css';
-import {getRandomQuestion} from '../clients/firebase'
 // import components
 import Question from './Question'
 
