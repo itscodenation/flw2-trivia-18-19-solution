@@ -1,5 +1,5 @@
 import React from 'react';
-import QuestionStem from './QuestionStem';
+import QuestionText from './QuestionText';
 import AnswerButton from './AnswerButton';
 import ResetButton from './ResetButton';
 
@@ -17,8 +17,8 @@ export default function Question({
   }
   return (
     <div className="question">
-      <QuestionStem
-        questionStem={question.question}
+      <QuestionText
+        questionStem={question.question_text}
       />
       <ResetButton 
         shouldShowResetButton={shouldShowResetButton}
