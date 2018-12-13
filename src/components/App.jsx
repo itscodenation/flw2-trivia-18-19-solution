@@ -13,6 +13,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state= {
+      questions: {},
       questionText: null,
       answerChoiceOne: null,
       answerChoiceTwo: null,
@@ -22,6 +23,7 @@ class App extends Component {
     firebaseDatabase.ref('/questions').on('value', (snapshot)=> {
       var question = getRandomQuestion(snapshot.val());
       this.setState({
+        questions: snapshot.val(),
         questionText: question.question_text,
         answerChoiceOne: question.choices[0],
         answerChoiceTwo: question.choices[1],
@@ -32,16 +34,14 @@ class App extends Component {
   }
 
   onResetButtonClicked(){
-    firebaseDatabase.ref('/questions').on('value', (snapshot)=> {
-      var question = getRandomQuestion(snapshot.val());
-      this.setState({
-        questionText: question.question_text,
-        answerChoiceOne: question.choices[0],
-        answerChoiceTwo: question.choices[1],
-        answerChoiceThree: question.choices[2],
-        answerChoiceFour: question.choices[3],
-      })
-    });
+    var question = getRandomQuestion(this.state.questions);
+    this.setState({
+      questionText: question.question_text,
+      answerChoiceOne: question.choices[0],
+      answerChoiceTwo: question.choices[1],
+      answerChoiceThree: question.choices[2],
+      answerChoiceFour: question.choices[3],
+    })
   }
 
   render() {
