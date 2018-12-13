@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import '../css/App.css';
-import {getRandomQuestion} from '../clients/firebase'
 // import components
 import Question from './Question'
+import {
+  getRandomQuestion,
+  buildFirebase,
+} from '../clients/firebase';
+
+var firebaseDatabase = buildFirebase();
 
 class App extends Component {
   constructor(props){
@@ -14,28 +19,29 @@ class App extends Component {
       answerChoiceThree: null,
       answerChoiceFour: null,
     }
+    firebaseDatabase.ref('/questions').on('value', (snapshot)=> {
+      var question = getRandomQuestion(snapshot.val());
+      this.setState({
+        questionText: question.question_text,
+        answerChoiceOne: question.choices[0],
+        answerChoiceTwo: question.choices[1],
+        answerChoiceThree: question.choices[2],
+        answerChoiceFour: question.choices[3],
+      })
+    });
   }
 
-  async componentWillMount(){
-    var randomQuestion = await getRandomQuestion();
-    this.setState({
-      questionText: randomQuestion.question_text,
-      answerChoiceOne: randomQuestion.choices[0],
-      answerChoiceTwo: randomQuestion.choices[1],
-      answerChoiceThree: randomQuestion.choices[2],
-      answerChoiceFour: randomQuestion.choices[3],
-    })
-  }
-
-  async onResetButtonClicked(){
-    var randomQuestion = await getRandomQuestion();
-    this.setState({
-      questionText: randomQuestion.question_text,
-      answerChoiceOne: randomQuestion.choices[0],
-      answerChoiceTwo: randomQuestion.choices[1],
-      answerChoiceThree: randomQuestion.choices[2],
-      answerChoiceFour: randomQuestion.choices[3],
-    })
+  onResetButtonClicked(){
+    firebaseDatabase.ref('/questions').on('value', (snapshot)=> {
+      var question = getRandomQuestion(snapshot.val());
+      this.setState({
+        questionText: question.question_text,
+        answerChoiceOne: question.choices[0],
+        answerChoiceTwo: question.choices[1],
+        answerChoiceThree: question.choices[2],
+        answerChoiceFour: question.choices[3],
+      })
+    });
   }
 
   render() {
