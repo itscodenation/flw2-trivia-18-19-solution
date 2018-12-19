@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../css/App.css';
-
 import Question from './Question';
 import {
   getRandomQuestion,
@@ -15,24 +14,35 @@ class App extends Component {
 
     firebaseDatabase.ref('/questions').on('value', (snapshot)=> {
       var question = getRandomQuestion(snapshot.val());
-      this.setState({currentQuestion: question})
+      this.setState({
+        questions: snapshot.val(),
+        currentQuestion: question
+      })
     });
     
     this.state = {
-      currentQuestion: null,
+      questions: null,
+      currentQuestion: {
+        question_text: null,
+        choices: [],
+        correct_choice_index:null,
+      },
       shouldShowCorrectAnswer: false,
       shouldShowResetButton: false,
     };
   }
 
   _onAnswerButtonClicked(){
-    // this.setState({shouldShowCorrectAnswer: true})
-    // this.setState({shouldShowResetButton: true})
+    this.setState({shouldShowCorrectAnswer: true})
+    this.setState({shouldShowResetButton: true})
   }
 
   _onResetButtonClicked(){
-    // this.setState({shouldShowCorrectAnswer: false})
-    // this.setState({shouldShowResetButton: false})
+    this.setState({shouldShowCorrectAnswer: false})
+    this.setState({shouldShowResetButton: false})
+    var question = getRandomQuestion(this.state.questions);
+    console.log(question);
+    this.setState({currentQuestion: question})
   }
 
   render() {

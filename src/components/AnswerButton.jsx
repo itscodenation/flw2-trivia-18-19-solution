@@ -7,20 +7,13 @@ export default function AnswerButton({
   onAnswerButtonClicked,
   shouldShowCorrectAnswer,
 }) {
-  let display;
-  if (shouldShowCorrectAnswer && correctChoice === choice) {
-    display = "Correct!"
-  } else if (shouldShowCorrectAnswer && correctChoice !== choice ) {
-    display = "Nope"
-  } else {
-    display = answerText;
-  }
+
   return (
     <div 
       className="button" 
       onClick={() => onAnswerButtonClicked()}
     >
-      {display}
+      {answerText}
     </div>
   );
 }

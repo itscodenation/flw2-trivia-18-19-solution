@@ -18,7 +18,9 @@ export default function Question({
   return (
     <div className="question">
       <QuestionText
-        questionStem={question.question_text}
+        questionText={question.question_text}
+        shouldShowCorrectAnswer={shouldShowCorrectAnswer}
+        correctAnswer={question.choices[question.correct_choice_index]}
       />
       <ResetButton 
         shouldShowResetButton={shouldShowResetButton}
@@ -27,30 +29,18 @@ export default function Question({
       <div className="buttons">
         <AnswerButton
           answerText={question.choices[0]}
-          choice={0}
-          correctChoice={question.correct_choice}
-          shouldShowCorrectAnswer={shouldShowCorrectAnswer}
           onAnswerButtonClicked={onAnswerButtonClicked}
         />
         <AnswerButton
           answerText={question.choices[1]}
-          choice={1}
-          correctChoice={question.correct_choice}
-          shouldShowCorrectAnswer={shouldShowCorrectAnswer}
           onAnswerButtonClicked={onAnswerButtonClicked}
         />
         <AnswerButton
           answerText={question.choices[2]}
-          choice={2}
-          correctChoice={question.correct_choice}
-          shouldShowCorrectAnswer={shouldShowCorrectAnswer}
           onAnswerButtonClicked={onAnswerButtonClicked}
         />
         <AnswerButton
           answerText={question.choices[3]}
-          choice={3}
-          correctChoice={question.correct_choice}
-          shouldShowCorrectAnswer={shouldShowCorrectAnswer}
           onAnswerButtonClicked={onAnswerButtonClicked}
         />
       </div>
