@@ -28,18 +28,18 @@ class App extends Component {
         correct_choice_index:null,
       },
       shouldShowCorrectAnswer: false,
-      shouldShowResetButton: false,
+      shouldShowNextButton: false,
     };
   }
 
   _onAnswerButtonClicked(){
     this.setState({shouldShowCorrectAnswer: true})
-    this.setState({shouldShowResetButton: true})
+    this.setState({shouldShowNextButton: true})
   }
 
-  _onResetButtonClicked(){
+  _onNextButtonClicked(){
     this.setState({shouldShowCorrectAnswer: false})
-    this.setState({shouldShowResetButton: false})
+    this.setState({shouldShowNextButton: false})
     var question = getRandomQuestion(this.state.questions);
     console.log(question);
     this.setState({currentQuestion: question})
@@ -50,10 +50,10 @@ class App extends Component {
       <div className="app">
         <Question
           shouldShowCorrectAnswer={this.state.shouldShowCorrectAnswer}
-          shouldShowResetButton={this.state.shouldShowResetButton}
+          shouldShowNextButton={this.state.shouldShowNextButton}
           question={this.state.currentQuestion}
           onAnswerButtonClicked={()=>this._onAnswerButtonClicked()}
-          onResetButtonClicked={()=>this._onResetButtonClicked()}
+          onNextButtonClicked={()=>this._onNextButtonClicked()}
         />
       </div>
     );
