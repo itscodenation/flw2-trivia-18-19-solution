@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default function NextButton({
-  onResetButtonClicked,
+  onNextButtonClicked,
   shouldShowNextButton,
 }) {
-  if(!shouldNextResetButton){
+  if(!shouldNextButton){
     return null;
   }
   return (
