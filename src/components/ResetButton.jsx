@@ -12,7 +12,7 @@ export default function ResetButton({
       className="reset-button"
       onClick={onResetButtonClicked}
     >
-      Reset
+      Next Question
     </div>
   );
 }
