@@ -1,16 +1,16 @@
 import React from 'react';
 import QuestionText from './QuestionText';
 import AnswerButton from './AnswerButton';
-import ResetButton from './ResetButton';
+import NextButton from './NextButton';
 
 
 export default function Question({
   question,
   seconds,
   shouldShowCorrectAnswer,
-  shouldShowResetButton,
+  shouldShowNextButton,
   onAnswerButtonClicked,
-  onResetButtonClicked,
+  onNextButtonClicked,
 }) {
   if (!question){
     return null;
@@ -22,9 +22,9 @@ export default function Question({
         shouldShowCorrectAnswer={shouldShowCorrectAnswer}
         correctAnswer={question.choices[question.correct_choice_index]}
       />
-      <ResetButton 
-        shouldShowResetButton={shouldShowResetButton}
-        onResetButtonClicked={onResetButtonClicked}
+      <NextButton 
+        shouldShowNextButton={shouldShowNextButton}
+        onNexButtonClicked={onNextButtonClicked}
       />
       <div className="buttons">
         <AnswerButton
