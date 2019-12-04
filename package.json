@@ -5,7 +5,7 @@
   "homepage": "https://scriptedcurriculum.github.io/studio2",
   "dependencies": {
     "firebase": "^5.5.7",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-scripts": "2.1.1"
