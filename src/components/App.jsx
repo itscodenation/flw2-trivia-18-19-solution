@@ -19,7 +19,7 @@ class App extends Component {
         currentQuestion: question
       })
     });
-    
+
     this.state = {
       questions: null,
       currentQuestion: {
@@ -32,12 +32,12 @@ class App extends Component {
     };
   }
 
-  _onAnswerButtonClicked(){
+  onAnswerButtonClicked(){
     this.setState({shouldShowCorrectAnswer: true})
     this.setState({shouldShowNextButton: true})
   }
 
-  _onNextButtonClicked(){
+  onNextButtonClicked(){
     this.setState({shouldShowCorrectAnswer: false})
     this.setState({shouldShowNextButton: false})
     var question = getRandomQuestion(this.state.questions);
