@@ -1,13 +1,13 @@
 {
-  "main.css": "/studio2/static/css/main.b264e824.chunk.css",
-  "main.js": "/studio2/static/js/main.44deced1.chunk.js",
-  "main.js.map": "/studio2/static/js/main.44deced1.chunk.js.map",
-  "static/js/1.cf21d5dc.chunk.js": "/studio2/static/js/1.cf21d5dc.chunk.js",
-  "static/js/1.cf21d5dc.chunk.js.map": "/studio2/static/js/1.cf21d5dc.chunk.js.map",
+  "main.css": "/studio2/static/css/main.e3524317.chunk.css",
+  "main.js": "/studio2/static/js/main.0fb8a6c9.chunk.js",
+  "main.js.map": "/studio2/static/js/main.0fb8a6c9.chunk.js.map",
+  "static/js/1.736c6c32.chunk.js": "/studio2/static/js/1.736c6c32.chunk.js",
+  "static/js/1.736c6c32.chunk.js.map": "/studio2/static/js/1.736c6c32.chunk.js.map",
   "runtime~main.js": "/studio2/static/js/runtime~main.3a8a3bf4.js",
   "runtime~main.js.map": "/studio2/static/js/runtime~main.3a8a3bf4.js.map",
-  "static/css/main.b264e824.chunk.css.map": "/studio2/static/css/main.b264e824.chunk.css.map",
+  "static/css/main.e3524317.chunk.css.map": "/studio2/static/css/main.e3524317.chunk.css.map",
   "index.html": "/studio2/index.html",
-  "precache-manifest.fab6bf737cc71800b98f416256ff58fc.js": "/studio2/precache-manifest.fab6bf737cc71800b98f416256ff58fc.js",
+  "precache-manifest.2a2af424da640d8313d156c971744afa.js": "/studio2/precache-manifest.2a2af424da640d8313d156c971744afa.js",
   "service-worker.js": "/studio2/service-worker.js"
 }
