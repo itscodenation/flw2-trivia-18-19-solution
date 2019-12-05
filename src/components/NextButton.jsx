@@ -4,7 +4,7 @@ export default function NextButton({
   onNextButtonClicked,
   shouldShowNextButton,
 }) {
-  if(!shouldNextButton){
+  if(!shouldShowNextButton){
     return null;
   }
   return (
