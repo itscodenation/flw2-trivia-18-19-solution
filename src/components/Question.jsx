@@ -22,9 +22,9 @@ export default function Question({
         shouldShowCorrectAnswer={shouldShowCorrectAnswer}
         correctAnswer={question.choices[question.correct_choice_index]}
       />
-      <NextButton 
+      <NextButton
         shouldShowNextButton={shouldShowNextButton}
-        onNexButtonClicked={onNextButtonClicked}
+        onNextButtonClicked={onNextButtonClicked}
       />
       <div className="buttons">
         <AnswerButton

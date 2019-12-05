@@ -6,21 +6,12 @@ import {
   buildFirebase,
 } from '../clients/firebase';
 
-var firebaseDatabase = buildFirebase();
-
 class App extends Component {
   constructor(props) {
     super(props);
 
-    firebaseDatabase.ref('/questions').on('value', (snapshot)=> {
-      var question = getRandomQuestion(snapshot.val());
-      this.setState({
-        questions: snapshot.val(),
-        currentQuestion: question
-      })
-    });
-
     this.state = {
+      initialized: false,
       questions: null,
       currentQuestion: {
         question_text: null,
@@ -30,30 +21,52 @@ class App extends Component {
       shouldShowCorrectAnswer: false,
       shouldShowNextButton: false,
     };
+
+    this.onAnswerButtonClicked = this.onAnswerButtonClicked.bind(this);
+    this.onNextButtonClicked = this.onNextButtonClicked.bind(this);
+  }
+
+  componentDidMount() {
+    var firebaseDatabase = buildFirebase();
+
+    firebaseDatabase.ref('/questions').on('value', (snapshot)=> {
+      var questions = snapshot.val();
+      var question = getRandomQuestion(questions);
+      this.setState({
+        initialized: true,
+        questions,
+        currentQuestion: question
+      })
+    });
   }
 
   onAnswerButtonClicked(){
-    this.setState({shouldShowCorrectAnswer: true})
-    this.setState({shouldShowNextButton: true})
+    this.setState({
+      shouldShowCorrectAnswer: true,
+      shouldShowNextButton: true
+    });
   }
 
   onNextButtonClicked(){
-    this.setState({shouldShowCorrectAnswer: false})
-    this.setState({shouldShowNextButton: false})
     var question = getRandomQuestion(this.state.questions);
     console.log(question);
-    this.setState({currentQuestion: question})
+    this.setState({
+      shouldShowCorrectAnswer: false,
+      shouldShowNextButton: false,
+      currentQuestion: question
+    });
   }
 
   render() {
+    if (!this.state.initialized) { return null; }
     return (
       <div className="app">
         <Question
           shouldShowCorrectAnswer={this.state.shouldShowCorrectAnswer}
           shouldShowNextButton={this.state.shouldShowNextButton}
           question={this.state.currentQuestion}
-          onAnswerButtonClicked={()=>this.onAnswerButtonClicked()}
-          onNextButtonClicked={()=>this.onNextButtonClicked()}
+          onAnswerButtonClicked={this.onAnswerButtonClicked}
+          onNextButtonClicked={this.onNextButtonClicked}
         />
       </div>
     );
