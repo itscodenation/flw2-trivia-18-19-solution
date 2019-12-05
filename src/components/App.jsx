@@ -52,8 +52,8 @@ class App extends Component {
           shouldShowCorrectAnswer={this.state.shouldShowCorrectAnswer}
           shouldShowNextButton={this.state.shouldShowNextButton}
           question={this.state.currentQuestion}
-          onAnswerButtonClicked={()=>this._onAnswerButtonClicked()}
-          onNextButtonClicked={()=>this._onNextButtonClicked()}
+          onAnswerButtonClicked={()=>this.onAnswerButtonClicked()}
+          onNextButtonClicked={()=>this.onNextButtonClicked()}
         />
       </div>
     );
