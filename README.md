@@ -2,7 +2,7 @@
 
 ## Project Description
 
-For this project we will be building a kahoot app. This project will use firebase to fetch questions and react to diplay questions and answers. 
+For this project we will be building a kahoot app. This project will use firebase to fetch questions and react to diplay questions and answers.
 
 ====
 ### Day 1 Setup and Intro to React
@@ -21,11 +21,11 @@ Goal: Set up your your components
 
 - [ ] In your App.jsx file import the Question Component
 - [ ] Inside the render function call your Question component
-- [ ] Using the Question.jsx as a template create three more components called AnswerButton.jsx, QuestionText.jsx and ResetButton.jsx
-- [ ] In your Question.jsx file import your QuestionText, AnswerButton and ResetButton. In the spaces provided call each of the components. (You should have 4 AnswerButtons)
+- [ ] Using the Question.jsx as a template create three more components called AnswerButton.jsx, QuestionText.jsx and NextButton.jsx
+- [ ] In your Question.jsx file import your QuestionText, AnswerButton and NextButton. In the spaces provided call each of the components. (You should have 4 AnswerButtons)
 - [ ] The QuestionText should render a div with the text of any question of your choosing
 - [ ] The AnswerButton should should render a div with the text of any question of your choosing
-- [ ] The ResetButton should should render a div with the text "Reset"
+- [ ] The NextButton should should render a div with the text "Next"
 - [ ] Style these in any way you choose.
 
 ### Day 3 Passing Down Props to components
@@ -42,7 +42,7 @@ Goal: Set up your your components
         questionText={this.props.questionText}
     />
 ```
-- [ ] Finally in the QuestionText component lets display that question. 
+- [ ] Finally in the QuestionText component lets display that question.
 
 ```
     <div className="questionText">
@@ -63,7 +63,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state= {
-      
+
     }
   }
 ```
@@ -76,25 +76,25 @@ class App extends Component {
       currentQuestion: {
           question_text: "Question",
           choices: []
-      }  
+      }
     }
 ```
 
-- [ ] Now we can access the question_text from state and pass it down to each subsequent component. Notice your question text change. 
+- [ ] Now we can access the question_text from state and pass it down to each subsequent component. Notice your question text change.
 
 ```
-    <Question 
+    <Question
         questionText={this.state.currentQuestion.question_text}
     />
 ```
 
-- [ ] Complete for each of your answer choices. 
+- [ ] Complete for each of your answer choices.
 
 - [ ] Last we want to grab a new question when the page loads we need to write a firebase function in the the constuctor.
 
 ```
    constructor(props) {
-    super(props); 
+    super(props);
 
     firebaseDatabase.ref('/questions').on('value', (snapshot)=> {
       console.log(snapshot.val())
@@ -118,24 +118,24 @@ class App extends Component {
 ### Day 5 Reacting to user click
 - [ ] Create a new function that when you click on an AnswerButton component changes the questionText to display the correct answer.
  ```
-  _onAnswerButtonClicked(){
+  onAnswerButtonClicked(){
     this.setState({
       shouldDisplayAnswer: true,
     })
   }
   ```
 
-- [ ] Now we need to pass this function down through props to the button component. We do this using and arrow function displayed below. 
+- [ ] Now we need to pass this function down through props to the button component. We do this using and arrow function displayed below.
   ```
-  <Question 
+  <Question
     ...
-    answerButtonClicked={()=>this._onAnswerButtonClicked()}
+    answerButtonClicked={()=>this.onAnswerButtonClicked()}
   />
   ```
 
 - [ ] In Question.jsx keep passing it down through props
   ```
-    <AnswerButton 
+    <AnswerButton
           answerButtonClicked={this.props.answerButtonClicked}
     />
   ```
@@ -149,44 +149,44 @@ class App extends Component {
       </div>
     );
   ```
-- [ ] 
+- [ ]
 
 ### Day 6 More Functions and Conditional Rendering
 
-- [ ] In your App.jsx create a method function call  _onResetButtonClicked(). When this function is called it will set the current question to a new question.
+- [ ] In your App.jsx create a method function call  onNextButtonClicked(). When this function is called it will set the current question to a new question.
  ```
-  _onResetButtonClicked(){
+  onNextButtonClicked(){
     let randomQuestion = getRandomQuestion(this.state.questions)
     this.setState({
       currentQuestion: randomQuestion,
     })
   }
   ```
-- [ ] Now we need to pass this function down through props to the button component. We do this using and arrow function displayed below. 
+- [ ] Now we need to pass this function down through props to the button component. We do this using and arrow function displayed below.
   ```
-  <Question 
+  <Question
     ...
-    resetButtonClicked={()=>this.onResetButtonClicked()}
+    nextButtonClicked={()=>this.onNextButtonClicked()}
   />
   ```
 - [ ] In Question.jsx keep passing it down through props
   ```
-    <ResetButton 
-          resetButtonClicked={this.props.resetButtonClicked}
+    <NextButton
+          nextButtonClicked={this.props.nextButtonClicked}
     />
   ```
 - [ ] In AnswerButton.jsx we can add it to the onClick function
   ```
     return (
-      <div className="reset-button"
-        onClick={this.props.resetButtonClicked}
+      <div className="next-button"
+        onClick={this.props.nextButtonClicked}
       >
-        Reset
+        Rext
       </div>
     );
   ```
 
-### Day 7 
+### Day 7
 - [] Make your site live on gh-pages
     [] npm install gh-pages --save-dev
     [] open your package.json file and add both of these

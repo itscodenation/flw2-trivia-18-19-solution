@@ -2,7 +2,7 @@
   "name": "studio2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://itscodenation.github.io/studio2",
+  "homepage": "https://itscodenation.github.io/studio2",
   "dependencies": {
     "firebase": "^5.5.7",
     "lodash": "^4.17.11",
