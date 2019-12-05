@@ -8,7 +8,7 @@ For this project we will be building a kahoot app. This project will use firebas
 ### Day 1 Setup and Intro to React
 Goal: Set up your project and view the live running app.
 
-- [x] Go to the repository at https://github.com/ScriptEdcurriculum/kahoot
+- [x] Go to the repository at https://github.com/itscodenation/trivia
 - [ ] Fork this repository to your github account and clone to a new workspace
 - [ ] Add, commit, and push your changes
 - [ ] to set up your app, in your terminal type `npm install`
